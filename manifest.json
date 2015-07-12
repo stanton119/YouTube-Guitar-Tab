@@ -1,0 +1,54 @@
+{
+	"manifest_version": 2,
+
+	"name": "Guitar Tabs for YouTube™",
+	"description": "Find guitar tabs for the current video",
+	"version": "2.0",
+	"author": "Richard Stanton",
+  
+	"minimum_chrome_version": "34",
+  
+
+	"background": {
+		"persistent": false,
+		"scripts": [ "js/background.js", "js/jquery-1.6.1.min.js" ]
+	},
+	
+	"web_accessible_resources": [
+		"js/youtubeAPI.js"
+	],
+	
+	"content_scripts": [
+		{
+			"matches": [
+				"http://www.youtube.com/*",
+				"https://www.youtube.com/*"
+			],
+			"css": ["js/insert.css"],
+			"js": ["js/jquery-1.6.1.min.js", "js/content.js"]
+		}
+	],
+	
+	"permissions": [
+		"http://*.youtube.com/",
+		"https://*.youtube.com/",
+		"http://*.google.com/*",
+		"https://*.google.com/*",
+		"http://*.googleapis.com/*",
+		"https://*.googleapis.com/*",
+		"http://*.ultimate-guitar.com/*",
+		"https://*.ultimate-guitar.com/*",
+		"tabs",
+		"storage"
+	],
+	
+	"page_action": {
+		"default_icon": "img/on.png",
+		"default_title": "Guitar Tabs for YouTube™"
+	},
+	
+	"icons": {
+		"128": "img/icon.png"
+	}
+
+}
